@@ -137,7 +137,7 @@ func TranPost(data, sign []byte) {
 	w.Close()
 
 	// Now that you have a form, you can submit it to your handler.
-	req, err := http.NewRequest("POST", "http://121.201.80.40:8888/wallet/transign", &b)
+	req, err := http.NewRequest("POST", "http://121.201.80.40:8888/kcoin/transign", &b)
 	if err != nil {
 		log.Fatalln(err)
 	}
