@@ -23,7 +23,7 @@ import (
 //      签名后的数据
 func Sign(priKey, data []byte) ([]byte, error) {
 	Md5Inst := md5.New()
-	Md5Inst.Write([]byte(data))
+	Md5Inst.Write(data)
 	hash := Md5Inst.Sum([]byte(""))
 
 	x, y := SECP256K1().ScalarBaseMult(priKey)
@@ -55,7 +55,7 @@ func Sign(priKey, data []byte) ([]byte, error) {
 //      验证结果
 func Verify(sign, data []byte, pubKey string) (bool, error) {
 	Md5Inst := md5.New()
-	Md5Inst.Write([]byte(data))
+	Md5Inst.Write(data)
 	hash := Md5Inst.Sum([]byte(""))
 
 	var pk = strings.TrimPrefix(pubKey, "04")
