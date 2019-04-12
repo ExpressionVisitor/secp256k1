@@ -42,7 +42,6 @@ func Sign(priKey, data []byte) ([]byte, error) {
 
 	sign := append(r.Bytes(), s.Bytes()...)
 	if len(sign) != 64 {
-		//fmt.Println(sign)
 		return Sign(priKey, data)
 	}
 	return sign, nil
