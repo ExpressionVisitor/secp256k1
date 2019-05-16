@@ -1,13 +1,9 @@
 kind: pipeline
 name: default
 
-workspace:
-  base: /go
-  path: src/github.com/ExpressionVisitor/secp256k1
-
 steps:
-- name: test
-  image: golang
+- name: build
+  image: golang:1.12.5
   commands:
-  - go test
+  - go test -v ./...
   - go build

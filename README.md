@@ -1,11 +1,10 @@
 # secp256k1
 [![Build Status](https://cloud.drone.io/api/badges/ExpressionVisitor/secp256k1/status.svg)](https://cloud.drone.io/ExpressionVisitor/secp256k1)
 
-> 包含以下用例：私钥生成公钥、签名、签名验证、转账交易
+包含以下用例：私钥生成公钥、签名、签名验证、转账交易
+> 同步区块（获取转账记录流程）
 
 ```bash
-================获取转账记录流程================
-
 以测试环境(http://121.201.80.40:8888)为例，其中(kcoin为开元通宝 wallet为8PHC nzc为牛樟链)
 
 一、获取链的最新区块高度
