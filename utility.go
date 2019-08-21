@@ -40,10 +40,12 @@ func Sign(priKey, data []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	sign := append(r.Bytes(), s.Bytes()...)
-	if len(sign) != 64 {
-		return Sign(priKey, data)
-	}
+	rBytes := r.Bytes()
+	sBytes := s.Bytes()
+	sign := make([]byte, 64)
+	copy(sign[32-len(rBytes):32], rBytes)
+	copy(sign[64-len(sBytes):64], sBytes)
+
 	return sign, nil
 }
 
