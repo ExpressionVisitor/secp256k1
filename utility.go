@@ -110,7 +110,8 @@ func CreatePubKey(sk string) string {
 // 参数：
 //      data   ：待签名的数据
 //      sign   ：签名数据
-func TranPost(data, sign []byte) {
+//      url    ：请求地址
+func TranPost(data, sign []byte, url string) {
 	// Prepare a form that you will submit to that URL.
 	var b bytes.Buffer
 	w := multipart.NewWriter(&b)
@@ -140,7 +141,7 @@ func TranPost(data, sign []byte) {
 	w.Close()
 
 	// Now that you have a form, you can submit it to your handler.
-	req, err := http.NewRequest("POST", "http://121.201.80.40:8888/kcoin/transign", &b)
+	req, err := http.NewRequest("POST", url, &b)
 	if err != nil {
 		log.Fatalln(err)
 	}
