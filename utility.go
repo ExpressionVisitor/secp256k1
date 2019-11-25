@@ -155,6 +155,7 @@ func TranPost(data, sign []byte, url string) {
 		log.Fatalln(err)
 	}
 
+	defer res.Body.Close()
 	// Check the response
 	if res.StatusCode != http.StatusOK {
 		log.Fatalln("StatusCode", res.StatusCode)
